@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="br.com.diegoronan.banco.Lancamento" project="Banco" 
     file="/Banco/src/br/com/diegoronan/banco/Lancamento.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="223" width="185" x="251" y="-25"/>    
+    <position height="223" width="185" x="194" y="19"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="br.com.diegoronan.banco.Correntista" project="Banco" 
     file="/Banco/src/br/com/diegoronan/banco/Correntista.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="662" y="313"/>    
+    <position height="-1" width="-1" x="556" y="371"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="br.com.diegoronan.banco.Conta" project="Banco" 
     file="/Banco/src/br/com/diegoronan/banco/Conta.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="169" width="176" x="251" y="238"/>    
+    <position height="169" width="176" x="194" y="282"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
