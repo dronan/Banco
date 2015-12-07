@@ -1,42 +1,52 @@
 package br.com.diegoronan.banco;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import br.com.diegoronan.exceptions.BancoException;
 
 public class Executa {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws BancoException {
 		
 		Conta conta = new Conta();
-				
+		
 		Correntista correntista1 = new Correntista();
 		correntista1.setNomeCorrentista("Diego");
 		correntista1.setConta(conta);
 		conta.setCorrentista(correntista1);
+		
+		ArrayList<Lancamento> lancamentos = new ArrayList<Lancamento>();		
 				
-		Lancamento lancamento1 = new Lancamento();
-		lancamento1.setTipoLancamento(1);
-		lancamento1.setValorLancamento(10.00);
-		lancamento1.setConta(conta);
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Operação:\n1 - Debito\n2 - Credito\n\n");
 
-		Lancamento lancamento2 = new Lancamento();
-		lancamento2.setTipoLancamento(1);
-		lancamento2.setValorLancamento(20.00);
-		lancamento2.setConta(conta);
-		
-		Lancamento lancamento3 = new Lancamento();
-		lancamento3.setTipoLancamento(1);
-		lancamento3.setValorLancamento(30.00);
-		lancamento3.setConta(conta);
-		
-		Lancamento lancamento4 = new Lancamento();
-		lancamento4.setTipoLancamento(2);
-		lancamento4.setValorLancamento(130.00);
-		lancamento4.setConta(conta);
-		
-		ArrayList<Lancamento> lancamentos = new ArrayList<Lancamento>(); 
-		lancamentos.add(lancamento1);
-		lancamentos.add(lancamento2);
-		lancamentos.add(lancamento3);
-		lancamentos.add(lancamento4);
-		
+		do {
+			
+			int tipo;
+						
+			System.out.print("Operação: ");
+			tipo = scan.nextInt();
+				
+			if (tipo > 2 || tipo < 1) {
+				throw new BancoException("Operação invalida!");	
+			}
+							
+			System.out.print("Valor: ");
+			double valor = scan.nextDouble();
+			
+			Lancamento lancamento = new Lancamento();
+			lancamento.setTipoLancamento(tipo);
+			lancamento.setValorLancamento(valor);
+			lancamento.setConta(conta);
+			
+			lancamentos.add(lancamento);
+			
+			scan.nextLine();
+			
+			System.out.println("Adicionar novo? [s/n]");
+			
+		} while (scan.hasNext() && (scan.nextLine().equalsIgnoreCase("s")));
+				
 		for (Lancamento lancamento : lancamentos) {
 			lancamento.getConta().setSaldo(lancamento.getValorLancamento(), lancamento.getTipoLancamento());
 		}
@@ -48,3 +58,4 @@ public class Executa {
 		
 	}
 }
+

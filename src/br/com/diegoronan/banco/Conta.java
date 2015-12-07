@@ -16,10 +16,15 @@ public class Conta {
 
 	void setSaldo(double saldo, int tipo) {
 
-		if (tipo == 1) {
+		switch (tipo) {
+		case 1: // debito
 			this.saldo -= saldo;
-		} else {
+			break;
+		case 2: // credito
 			this.saldo += saldo;
+			break;
+		default:
+			break;
 		}
 
 	}
