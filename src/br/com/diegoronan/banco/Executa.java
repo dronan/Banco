@@ -67,7 +67,7 @@ public class Executa {
 		} while (scan.hasNext() && (scan.nextLine().equalsIgnoreCase("s")));
 				
 		for (Lancamento lancamento : lancamentos) {
-			lancamento.getConta().setSaldo(lancamento.getValorLancamento(), lancamento.getTipoLancamento());
+			conta.setSaldo(lancamento.getValorLancamento(), lancamento.getTipoLancamento());
 		}
 		
 		System.out.println(conta.getSaldo());
