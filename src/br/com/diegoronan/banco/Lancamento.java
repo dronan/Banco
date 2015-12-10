@@ -1,5 +1,8 @@
 package br.com.diegoronan.banco;
 
+import br.com.diegoronan.exceptions.TipoLancamentoException;
+import br.com.diegoronan.exceptions.ValorException;
+
 public class Lancamento {
 
 	private double valorLancamento;
@@ -18,16 +21,24 @@ public class Lancamento {
 		return valorLancamento;
 	}
 	
-	public void setValorLancamento(double valorLancamento) {
-		this.valorLancamento = valorLancamento;
+	public void setValorLancamento(double valorLancamento) throws ValorException {
+		if (valorLancamento < 0) {
+			throw new ValorException("Valor invalido!");
+		} else {
+			this.valorLancamento = valorLancamento;
+		}
 	}
 	
 	public int getTipoLancamento() {
 		return tipoLancamento;
 	}
 	
-	public void setTipoLancamento(int i) {
-		this.tipoLancamento = i;
+	public void setTipoLancamento(int i) throws TipoLancamentoException {
+		if (i > 2 || i < 1) {
+			throw new TipoLancamentoException("Operação invalida!");	
+		} else {
+			this.tipoLancamento = i;
+		}
 	}
 	
 	
