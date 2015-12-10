@@ -29,8 +29,8 @@ public class Conta {
 
 	}
 
-	double getSaldo() {
-		return saldo;
+	String getSaldo() {
+		return "Correntista: " + getCorrentista().getNomeCorrentista() + "\nSaldo:  R$ "+ this.saldo;
 	}
 
 }
