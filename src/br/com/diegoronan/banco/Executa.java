@@ -43,29 +43,32 @@ public class Executa {
 
 				lancamento.setConta(conta);
 				
+				
 				lancamentos.add(lancamento);
 				
 				scan.nextLine();
 				
-				System.out.println("Adicionar novo? [s/n]");
+				System.out.println("\nAdicionar novo? [s/n]");
 				
 			} catch(TipoLancamentoException e) {
-				System.out.println("Operação Inválida.");
+				System.out.println("\nOperação Inválida.\n");
 				scan.nextLine();
-				System.out.println("Continuar? [s/n]");
+				System.out.println("Continuar? [s/n]\n");
 			} catch(ValorException e) {
-				System.out.println("Valor Inválido.");
+				System.out.println("\nValor Inválido.\n");
 				scan.nextLine();
-				System.out.println("Continuar? [s/n]");
+				System.out.println("Continuar? [s/n]\n");
 			} catch (InputMismatchException e){
-				System.out.println("Valor deve números.");
+				System.out.println("\nValor deve números.\n");
 				scan.nextLine();
-				System.out.println("Continuar? [s/n]");
+				System.out.println("Continuar? [s/n]\n");
 			}	
 
 			
 		} while (scan.hasNext() && (scan.nextLine().equalsIgnoreCase("s")));
-				
+			
+		conta.setLancamento(lancamentos);
+		
 		for (Lancamento lancamento : lancamentos) {
 			conta.setSaldo(lancamento.getValorLancamento(), lancamento.getTipoLancamento());
 		}

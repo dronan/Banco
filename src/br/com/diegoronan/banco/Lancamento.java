@@ -30,16 +30,38 @@ public class Lancamento {
 	}
 	
 	public int getTipoLancamento() {
-		return tipoLancamento;
+		return tipoLancamento;	
+	
 	}
+	
+	public String getTipoLancamentoStr() {
+		
+		String str = "";
+		
+		switch (tipoLancamento){
+		case 1:
+			str = "Debito";
+			break;
+		case 2:
+			str = "Credito";
+			break;
+		default:
+			return null;
+		}
+		
+		return str;
+	}
+
 	
 	public void setTipoLancamento(int i) throws TipoLancamentoException {
-		if (i > 2 || i < 1) {
-			throw new TipoLancamentoException("Operação invalida!");	
-		} else {
+		switch (i) {
+		case 1:
+		case 2:
 			this.tipoLancamento = i;
+			break;
+		default:
+			throw new TipoLancamentoException("Operação invalida!");
 		}
 	}
-	
 	
 }
